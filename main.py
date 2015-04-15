@@ -108,6 +108,18 @@ def next_board(board):
     return new_board
 
 
+def print_totals(board):
+    num_wolves = 0
+    for row in board:
+        num_wolves += row.count(WOLF)
+
+    num_rabbits = 0
+    for row in board:
+        num_rabbits += row.count(RABBIT)
+
+    info = 'Wolves: {:6d}\tRabbits: {:6d}'.format(num_wolves, num_rabbits)
+    print(info, end='')
+
 if __name__ == '__main__':
     original_board = board = random_board()
 
@@ -115,6 +127,7 @@ if __name__ == '__main__':
     with term.fullscreen():
         while True:
             print_board(board)
+            print_totals(board)
             time.sleep(.07)
 
             board = next_board(board)
