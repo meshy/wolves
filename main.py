@@ -96,7 +96,7 @@ def next_board(board):
     for y in range(WINDOW_HEIGHT):
         new_rabbits_on_row = []
         for x in range(WINDOW_WIDTH):
-            if new_board[y][x] == EMPTY and beside_rabbit(new_board, y, x):
+            if board[y][x] == EMPTY and beside_rabbit(new_board, y, x):
                 new_rabbits_on_row.append((y, x))
         new_rabbit_coords += new_rabbits_on_row
     for y, x in new_rabbit_coords:
